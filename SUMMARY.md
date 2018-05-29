@@ -12,5 +12,7 @@
     * [Remove qualified selector](patterns/remove-qualified-selector.md)
     * [Reuse color](patterns/reuse-color.md)
 
-* [Dead Css](part2/README.md)
-    * [article](dead-css/article.md)
+* [Dead CSS](part2/README.md)
+    * [Using the CLI](dead-css/cli.md)
+    * [Using Vim](dead-css/vim.md)
+    * [Tools](dead-css/tools.md)
