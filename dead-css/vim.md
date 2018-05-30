@@ -30,7 +30,13 @@ Regex for duplicate rule in a selector goes here
 
 ```
 
-Regex for 0px|em etc... goes here   
+Regex for 0px|em etc... 
+Searching
+```
+/\<0\(px\|em\|rem\)
 ```
 
+Replacing with confirmation:
+```
+:%s/\<0\(px\|em\|rem\)/0/gc
 ```
