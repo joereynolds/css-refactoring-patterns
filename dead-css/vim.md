@@ -7,10 +7,11 @@ When the CLI seems a bit too heavyweight, I like to go into Vim and do more fine
 (Note: All these regexes assume CSS, not Less or Sass or any other thing that does weird stuff to your beautiful CSS.)
 
 
+##### Commented out code
 Sometimes people comment out code and then just forget to remove it.
 Let's highlight them (The comments, not the people).
 ```
-
+/\/\*
 ```
 
 Or you can use a vim motion too!
@@ -20,25 +21,28 @@ See `:help ]/`
 ]/
 ```
 
+##### Selectors with no rules   
+
 Regex for empty rule goes here
 ```
 
 ```
+
+##### Duplicate rules in selectors
 
 Regex for duplicate rule in a selector goes here    
 ```
 
 ```
 
-Regex for finding a selector with only one rule goes here   
-(Useful for refactoring ids into classes...)
-In a search
+##### Selectors with one rule
+
 ```
 /{\n*\sbackground.*\n}
 ```
 
-Regex for 0px|em etc... 
-Searching
+##### 0 unit detection
+
 ```
 /\<0\(px\|em\|rem\)
 ```
