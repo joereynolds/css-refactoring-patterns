@@ -30,6 +30,13 @@ Regex for duplicate rule in a selector goes here
 
 ```
 
+Regex for finding a selector with only one rule goes here   
+(Useful for refactoring ids into classes...)
+In a search
+```
+/{\n*\sbackground.*\n}
+```
+
 Regex for 0px|em etc... 
 Searching
 ```

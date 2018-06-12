@@ -3,7 +3,6 @@
 Remove descendant selectors where they are unneccesary.
 
 From:
-
 ```
 ul > li > a {
   color: blue;
