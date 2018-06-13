@@ -8,6 +8,7 @@ When the CLI seems a bit too heavyweight, I like to go into Vim and do more fine
 
 
 ##### Commented out code
+
 Sometimes people comment out code and then just forget to remove it.
 Let's highlight them (The comments, not the people).
 ```

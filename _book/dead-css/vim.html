@@ -309,6 +309,38 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4" data-path="../part3/README.md">
+            
+                <span>
+            
+                    
+                    Refactoring in the wild
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../refactoring/refactoring-multiple-ids-with-one-class.html">
+            
+                <a href="../refactoring/refactoring-multiple-ids-with-one-class.html">
+            
+                    
+                    Replacing multiple ids with one class
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
     
 
@@ -358,22 +390,25 @@
 <p>When the CLI seems a bit too heavyweight, I like to go into Vim and do more fine-tuned refactoring.</p>
 <h4 id="refactoring-regexes">Refactoring regexes</h4>
 <p>(Note: All these regexes assume CSS, not Less or Sass or any other thing that does weird stuff to your beautiful CSS.)</p>
+<h5 id="commented-out-code">Commented out code</h5>
 <p>Sometimes people comment out code and then just forget to remove it.
 Let&apos;s highlight them (The comments, not the people).</p>
-<pre><code>
-
+<pre><code>/\/\*
 </code></pre><p>Or you can use a vim motion too!
 The below will take you to the next &apos;c-style&apos; comment.
 See <code>:help ]/</code></p>
 <pre><code>]/
-</code></pre><p>Regex for empty rule goes here</p>
+</code></pre><h5 id="selectors-with-no-rules">Selectors with no rules</h5>
+<p>Regex for empty rule goes here</p>
 <pre><code>
 
-</code></pre><p>Regex for duplicate rule in a selector goes here    </p>
+</code></pre><h5 id="duplicate-rules-in-selectors">Duplicate rules in selectors</h5>
+<p>Regex for duplicate rule in a selector goes here    </p>
 <pre><code>
 
-</code></pre><p>Regex for 0px|em etc... 
-Searching</p>
+</code></pre><h5 id="selectors-with-one-rule">Selectors with one rule</h5>
+<pre><code>/{\n*\sbackground.*\n}
+</code></pre><h5 id="0-unit-detection">0 unit detection</h5>
 <pre><code>/\&lt;0\(px\|em\|rem\)
 </code></pre><p>Replacing with confirmation:</p>
 <pre><code>:%s/\&lt;0\(px\|em\|rem\)/0/gc
@@ -420,7 +455,7 @@ Searching</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Using Vim","level":"1.3.2","depth":2,"next":{"title":"Tools","level":"1.3.3","depth":2,"path":"dead-css/tools.md","ref":"dead-css/tools.md","articles":[]},"previous":{"title":"Using the CLI","level":"1.3.1","depth":2,"path":"dead-css/cli.md","ref":"dead-css/cli.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dead-css/vim.md","mtime":"2018-05-30T13:36:22.359Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-30T13:10:18.136Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Using Vim","level":"1.3.2","depth":2,"next":{"title":"Tools","level":"1.3.3","depth":2,"path":"dead-css/tools.md","ref":"dead-css/tools.md","articles":[]},"previous":{"title":"Using the CLI","level":"1.3.1","depth":2,"path":"dead-css/cli.md","ref":"dead-css/cli.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dead-css/vim.md","mtime":"2018-06-12T07:32:18.789Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-13T07:14:23.472Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

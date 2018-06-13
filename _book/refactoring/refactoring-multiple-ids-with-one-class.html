@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Generalise id selector · GitBook</title>
+        <title>Replacing multiple ids with one class · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="inline-block-to-flex.html" />
     
-    
-    <link rel="prev" href="extract-to-class.html" />
+    <link rel="prev" href="../part3/README.md" />
     
 
     </head>
@@ -116,9 +114,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="extract-inline-style.html">
+        <li class="chapter " data-level="1.2.1" data-path="../patterns/extract-inline-style.html">
             
-                <a href="extract-inline-style.html">
+                <a href="../patterns/extract-inline-style.html">
             
                     
                     Extract inline style
@@ -129,9 +127,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="extract-key-selector.html">
+        <li class="chapter " data-level="1.2.2" data-path="../patterns/extract-key-selector.html">
             
-                <a href="extract-key-selector.html">
+                <a href="../patterns/extract-key-selector.html">
             
                     
                     Extract key selector
@@ -142,9 +140,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="extract-to-class.html">
+        <li class="chapter " data-level="1.2.3" data-path="../patterns/extract-to-class.html">
             
-                <a href="extract-to-class.html">
+                <a href="../patterns/extract-to-class.html">
             
                     
                     Extract to class
@@ -155,9 +153,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.4" data-path="generalise-id-selector.html">
+        <li class="chapter " data-level="1.2.4" data-path="../patterns/generalise-id-selector.html">
             
-                <a href="generalise-id-selector.html">
+                <a href="../patterns/generalise-id-selector.html">
             
                     
                     Generalise id selector
@@ -168,9 +166,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="inline-block-to-flex.html">
+        <li class="chapter " data-level="1.2.5" data-path="../patterns/inline-block-to-flex.html">
             
-                <a href="inline-block-to-flex.html">
+                <a href="../patterns/inline-block-to-flex.html">
             
                     
                     Inline Block to flex
@@ -181,9 +179,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="move-up-hierarchy.html">
+        <li class="chapter " data-level="1.2.6" data-path="../patterns/move-up-hierarchy.html">
             
-                <a href="move-up-hierarchy.html">
+                <a href="../patterns/move-up-hierarchy.html">
             
                     
                     Move up hierarchy
@@ -194,9 +192,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="reduce-dom-dependency.html">
+        <li class="chapter " data-level="1.2.7" data-path="../patterns/reduce-dom-dependency.html">
             
-                <a href="reduce-dom-dependency.html">
+                <a href="../patterns/reduce-dom-dependency.html">
             
                     
                     Reduce DOM dependency
@@ -207,9 +205,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.8" data-path="reduce-specificity.html">
+        <li class="chapter " data-level="1.2.8" data-path="../patterns/reduce-specificity.html">
             
-                <a href="reduce-specificity.html">
+                <a href="../patterns/reduce-specificity.html">
             
                     
                     Reduce specificity
@@ -220,9 +218,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9" data-path="remove-qualified-selector.html">
+        <li class="chapter " data-level="1.2.9" data-path="../patterns/remove-qualified-selector.html">
             
-                <a href="remove-qualified-selector.html">
+                <a href="../patterns/remove-qualified-selector.html">
             
                     
                     Remove qualified selector
@@ -233,9 +231,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.10" data-path="reuse-color.html">
+        <li class="chapter " data-level="1.2.10" data-path="../patterns/reuse-color.html">
             
-                <a href="reuse-color.html">
+                <a href="../patterns/reuse-color.html">
             
                     
                     Reuse color
@@ -323,9 +321,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../refactoring/refactoring-multiple-ids-with-one-class.html">
+        <li class="chapter active" data-level="1.4.1" data-path="refactoring-multiple-ids-with-one-class.html">
             
-                <a href="../refactoring/refactoring-multiple-ids-with-one-class.html">
+                <a href="refactoring-multiple-ids-with-one-class.html">
             
                     
                     Replacing multiple ids with one class
@@ -371,7 +369,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Generalise id selector</a>
+        <a href=".." >Replacing multiple ids with one class</a>
     </h1>
 </div>
 
@@ -386,18 +384,52 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="generalise-id-selector">Generalise id selector</h3>
-<p>Remove any selectors before the id.</p>
-<p>From:</p>
-<pre><code>.my-column #my-item {
-  padding: 5px;
+                                <h1 id="replacing-multiple-ids-with-one-class">Replacing multiple ids with one class</h1>
+<p>If you have multiple ids all exhibiting the same behaviour, they should be refactored into one class.
+From there you can go on to further refactorings, but baby steps...</p>
+<p>An example can be something such as:</p>
+<pre><code>#notes-table tr {
+    height: 25px   
 }
-</code></pre><p>To:</p>
-<pre><code>#my-item {
-  padding: 5px;
+
+
+... Loads more CSS
+
+#brand-settings-form-table th, #brand-settings-form-table td {
+    height: 25px;
 }
-</code></pre><p>Why?</p>
-<p>An id is unique and does not need extra specificity.</p>
+</code></pre><p>As you can see, there&apos;s no need for these to be in id&apos;s at all, the writers just didn&apos;t know (or think).</p>
+<p>To combat this, I suggest the following which has served me well (though it can have 1 undesirable (but rare) effect)</p>
+<h5 id="find-all-single-rule-selectors">Find all single rule selectors</h5>
+<p>Find all the selectors with the same single rule (In this case we&apos;re targeting <code>height: 25px</code>).
+In my case I used a very naive vim search pattern.</p>
+<pre><code>/height.*25px
+</code></pre><h6 id="group-rules-together">Group rules together</h6>
+<p>You then want to start consolidating these rules into one mega-rule.
+It looks terrible but it&apos;s a step in refactoring so relax.</p>
+<pre><code>#notes-table tr,
+.table-box-style tr,
+#profile-table th, #brand-profile-table td,
+#brand-settings-form-table th, #brand-settings-form-table td,
+#new-event-bottom-right .end_c div, #new-admin-bottom-left .end_c div,
+#global_setting_main_container th, #global_setting_main_container td,
+.generic-table-display tr,
+.tabs-wrapper {
+    height: 25px;
+}
+</code></pre><h6 id="refactor-to-class">Refactor to class</h6>
+<pre><code>.short {
+    height: 25px;
+}
+</code></pre><h6 id="replace-all-old-usages">Replace all old usages</h6>
+<p>In some cases you don&apos;t want to remove all of the ids (javascript might be targeting it etc...).
+However, if it&apos;s just static HTML, then you should have no problems with the following:</p>
+<pre><code>sed command goes here
+</code></pre><h2 id="caveats">Caveats</h2>
+<p>As mentioned before, the caveat is that you&apos;re moving styles into one place in the sheet. 
+This means the selectors precedence has now changed and could potentially be overriding more or is
+being overridden itself.</p>
+<p>You&apos;ll have to decide yourself if you want to take that risk (hint: I do).</p>
 
                                 
                                 </section>
@@ -425,14 +457,10 @@
 
             
                 
-                <a href="extract-to-class.html" class="navigation navigation-prev " aria-label="Previous page: Extract to class">
+                <a href="../part3/README.md" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Refactoring in the wild">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="inline-block-to-flex.html" class="navigation navigation-next " aria-label="Next page: Inline Block to flex">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -441,7 +469,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Generalise id selector","level":"1.2.4","depth":2,"next":{"title":"Inline Block to flex","level":"1.2.5","depth":2,"path":"patterns/inline-block-to-flex.md","ref":"patterns/inline-block-to-flex.md","articles":[]},"previous":{"title":"Extract to class","level":"1.2.3","depth":2,"path":"patterns/extract-to-class.md","ref":"patterns/extract-to-class.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"patterns/generalise-id-selector.md","mtime":"2018-05-30T13:07:59.970Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-13T07:14:23.472Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Replacing multiple ids with one class","level":"1.4.1","depth":2,"previous":{"title":"Refactoring in the wild","level":"1.4","depth":1,"path":"part3/README.md","ref":"part3/README.md","articles":[{"title":"Replacing multiple ids with one class","level":"1.4.1","depth":2,"path":"refactoring/refactoring-multiple-ids-with-one-class.md","ref":"refactoring/refactoring-multiple-ids-with-one-class.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"refactoring/refactoring-multiple-ids-with-one-class.md","mtime":"2018-06-13T07:39:49.844Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-13T07:14:23.472Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
