@@ -39,8 +39,15 @@ Regex for duplicate rule in a selector goes here
 ##### Selectors with one rule
 
 ```
+/{.*\n.*\n}
+```
+
+Or more specifically
+```
 /{\n*\sbackground.*\n}
 ```
+
+
 
 ##### 0 unit detection
 

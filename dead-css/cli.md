@@ -13,6 +13,10 @@ Be as destructive as you want and then audit what you want to commit to your rep
 **Stripping out comments**
 
 **Replacing 0px (and others) with 0**
+(Note this replaces in place, run if you know what you're doing')
+```
+sed -ir 's/0(px|em)/0/g' file.css
+```
 
 **Removing empty rules**
 
@@ -48,13 +52,9 @@ Examples:
 echo "static/css/base-style.css" | entr mort -vf /_
 ```
 
-Note: 
+### Versioning your watchers
 
-There are a many file watchers that do more or less the same thing but there is also
+If you're hopping from machines often or you're just one of those cave-dwelling dotfile people (I am)
+then you'll be pleased to know it's possible to version your `entr` watches.
 
-[funzzy](https://github.com/cristianoliveira/funzzy) which is a file watcher capable of storing your watches in yaml, meaning you can version them.
-
-
-
-
-**Replace 0px rules again (just in case you accidentally added some in)**
+If you download [entree](https://github.com/joereynolds/entree) and follow the instructions you'll be up and running (with tab-completion) in no time!
