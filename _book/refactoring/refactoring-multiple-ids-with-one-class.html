@@ -171,7 +171,7 @@
                 <a href="../patterns/inline-block-to-flex.html">
             
                     
-                    Inline Block to flex
+                    Inline block to flex
             
                 </a>
             
@@ -179,7 +179,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="../patterns/move-up-hierarchy.html">
+        <li class="chapter " data-level="1.2.6" data-path="../patterns/merge-duplicate-selector.html">
+            
+                <a href="../patterns/merge-duplicate-selector.html">
+            
+                    
+                    Merge duplicate selector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../patterns/move-up-hierarchy.html">
             
                 <a href="../patterns/move-up-hierarchy.html">
             
@@ -192,7 +205,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="../patterns/reduce-dom-dependency.html">
+        <li class="chapter " data-level="1.2.8" data-path="../patterns/reduce-dom-dependency.html">
             
                 <a href="../patterns/reduce-dom-dependency.html">
             
@@ -205,7 +218,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.8" data-path="../patterns/reduce-specificity.html">
+        <li class="chapter " data-level="1.2.9" data-path="../patterns/reduce-specificity.html">
             
                 <a href="../patterns/reduce-specificity.html">
             
@@ -218,7 +231,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9" data-path="../patterns/remove-qualified-selector.html">
+        <li class="chapter " data-level="1.2.10" data-path="../patterns/remove-qualified-selector.html">
             
                 <a href="../patterns/remove-qualified-selector.html">
             
@@ -231,7 +244,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.10" data-path="../patterns/reuse-color.html">
+        <li class="chapter " data-level="1.2.11" data-path="../patterns/reuse-color.html">
             
                 <a href="../patterns/reuse-color.html">
             
@@ -393,7 +406,7 @@ From there you can go on to further refactorings, but baby steps...</p>
 }
 
 
-... Loads more CSS
+/* Loads more CSS */
 
 #brand-settings-form-table th, #brand-settings-form-table td {
     height: 25px;
@@ -418,10 +431,12 @@ It looks terrible but it&apos;s a step in refactoring so relax.</p>
     height: 25px;
 }
 </code></pre><h6 id="refactor-to-class">Refactor to class</h6>
+<p>Rename the selector to something semantic and remove the old bunch of selectors.</p>
 <pre><code>.short {
     height: 25px;
 }
 </code></pre><h6 id="replace-all-old-usages">Replace all old usages</h6>
+<p>At this point, you&apos;ve refactored your many selectors into one and so you&apos;re ready to start<br>refactoring the HTML and views that use it.</p>
 <p>In some cases you don&apos;t want to remove all of the ids (javascript might be targeting it etc...).
 However, if it&apos;s just static HTML, then you should have no problems with the following:</p>
 <pre><code>sed command goes here
@@ -469,7 +484,7 @@ being overridden itself.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Replacing multiple ids with one class","level":"1.4.1","depth":2,"previous":{"title":"Refactoring in the wild","level":"1.4","depth":1,"path":"part3/README.md","ref":"part3/README.md","articles":[{"title":"Replacing multiple ids with one class","level":"1.4.1","depth":2,"path":"refactoring/refactoring-multiple-ids-with-one-class.md","ref":"refactoring/refactoring-multiple-ids-with-one-class.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"refactoring/refactoring-multiple-ids-with-one-class.md","mtime":"2018-06-13T07:39:49.844Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-13T07:14:23.472Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Replacing multiple ids with one class","level":"1.4.1","depth":2,"previous":{"title":"Refactoring in the wild","level":"1.4","depth":1,"path":"part3/README.md","ref":"part3/README.md","articles":[{"title":"Replacing multiple ids with one class","level":"1.4.1","depth":2,"path":"refactoring/refactoring-multiple-ids-with-one-class.md","ref":"refactoring/refactoring-multiple-ids-with-one-class.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"refactoring/refactoring-multiple-ids-with-one-class.md","mtime":"2018-06-13T10:06:54.382Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-19T12:03:12.388Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
