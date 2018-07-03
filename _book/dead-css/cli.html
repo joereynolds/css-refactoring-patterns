@@ -402,15 +402,17 @@
                                 <h1 id="cli">CLI</h1>
 <p>Using the CLI, you can get a huge reward for very little effort.</p>
 <h2 id="finding-and-replacing-with-sed">Finding and replacing with <code>sed</code></h2>
-<p>While <code>sed</code> can&apos;t offer you a confirmation prompt before each change,
-you can easily achieve similar functionality in your git repository with <code>git add -p</code>.</p>
 <p>Be as destructive as you want and then audit what you want to commit to your repository.</p>
-<p><strong>Stripping out comments</strong></p>
 <p><strong>Replacing 0px (and others) with 0</strong>
 (Note this replaces in place, run if you know what you&apos;re doing&apos;)</p>
 <pre><code>sed -ir &apos;s/0(px|em)/0/g&apos; file.css
 </code></pre><p><strong>Removing empty rules</strong></p>
-<h2 id="hunting-down-selectors-with-grep">Hunting down selectors with <code>grep</code></h2>
+<pre><code>
+
+</code></pre><p><strong>NOTE:</strong></p>
+<p>While <code>sed</code> can&apos;t offer you a confirmation prompt before each change,
+you can easily achieve similar functionality in your git repository with <code>git add -p</code>.</p>
+<h2 id="hunting-down-selectors-with-git-grep">Hunting down selectors with <code>git grep</code></h2>
 <h2 id="finding-dead-css-with-mort">Finding dead CSS with <code>mort</code></h2>
 <p>Mort was written by yours truly and is capable of doing naive string searches to help detect dead CSS.</p>
 <p>Check the <a href="https://github.com/joereynolds/mort/" target="_blank">github repository</a> for examples of usages and installation but basically, you can do  </p>
@@ -470,7 +472,7 @@ then you&apos;ll be pleased to know it&apos;s possible to version your <code>ent
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Using the CLI","level":"1.3.1","depth":2,"next":{"title":"Using Vim","level":"1.3.2","depth":2,"path":"dead-css/vim.md","ref":"dead-css/vim.md","articles":[]},"previous":{"title":"Dead CSS","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[{"title":"Using the CLI","level":"1.3.1","depth":2,"path":"dead-css/cli.md","ref":"dead-css/cli.md","articles":[]},{"title":"Using Vim","level":"1.3.2","depth":2,"path":"dead-css/vim.md","ref":"dead-css/vim.md","articles":[]},{"title":"Tools","level":"1.3.3","depth":2,"path":"dead-css/tools.md","ref":"dead-css/tools.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dead-css/cli.md","mtime":"2018-06-19T10:14:24.496Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-19T12:03:12.388Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Using the CLI","level":"1.3.1","depth":2,"next":{"title":"Using Vim","level":"1.3.2","depth":2,"path":"dead-css/vim.md","ref":"dead-css/vim.md","articles":[]},"previous":{"title":"Dead CSS","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[{"title":"Using the CLI","level":"1.3.1","depth":2,"path":"dead-css/cli.md","ref":"dead-css/cli.md","articles":[]},{"title":"Using Vim","level":"1.3.2","depth":2,"path":"dead-css/vim.md","ref":"dead-css/vim.md","articles":[]},{"title":"Tools","level":"1.3.3","depth":2,"path":"dead-css/tools.md","ref":"dead-css/tools.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dead-css/cli.md","mtime":"2018-07-03T13:39:27.414Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-03T11:41:50.715Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

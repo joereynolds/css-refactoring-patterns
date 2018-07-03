@@ -5,12 +5,7 @@ Using the CLI, you can get a huge reward for very little effort.
 
 ## Finding and replacing with `sed`
 
-While `sed` can't offer you a confirmation prompt before each change,
-you can easily achieve similar functionality in your git repository with `git add -p`.
-
 Be as destructive as you want and then audit what you want to commit to your repository.
-
-**Stripping out comments**
 
 **Replacing 0px (and others) with 0**
 (Note this replaces in place, run if you know what you're doing')
@@ -19,9 +14,19 @@ sed -ir 's/0(px|em)/0/g' file.css
 ```
 
 **Removing empty rules**
+```
+
+```
+
+**NOTE:**
+
+While `sed` can't offer you a confirmation prompt before each change,
+you can easily achieve similar functionality in your git repository with `git add -p`.
+
+## Hunting down selectors with `git grep`
 
 
-## Hunting down selectors with `grep`
+
 
 
 ## Finding dead CSS with `mort`
