@@ -4,8 +4,9 @@ When the CLI seems a bit too heavyweight, I like to go into Vim and do more fine
 
 #### Refactoring regexes
 
-(Note: All these regexes assume CSS, not Less or Sass or any other thing that does weird stuff to your beautiful CSS.)
+Note: All these regexes assume CSS, not Less or Sass or any other thing that does weird stuff to your beautiful CSS.
 
+Also note that all of these regexes are being used in a search `/`.
 
 ##### Commented out code
 
@@ -24,9 +25,12 @@ See `:help ]/`
 
 ##### Selectors with no rules   
 
-Regex for empty rule goes here
-```
+Occasionally you'll come across empty selectors.
 
+The rule below will help highlight any.
+
+```
+/{\(\s\|\n\)*\}
 ```
 
 ##### Duplicate rules in selectors
