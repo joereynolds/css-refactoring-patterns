@@ -10,6 +10,7 @@
     * [Move up hierarchy](patterns/move-up-hierarchy.md)
     * [Reduce DOM dependency](patterns/reduce-dom-dependency.md)
     * [Reduce specificity](patterns/reduce-specificity.md)
+    * [Remove !important declaration](patterns/remove-important-declarations.md)
     * [Remove qualified selector](patterns/remove-qualified-selector.md)
     * [Reuse color](patterns/reuse-color.md)
 

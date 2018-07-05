@@ -63,3 +63,11 @@ Replacing with confirmation:
 ```
 :%s/\<0\(px\|em\|rem\)/0/gc
 ```
+
+#### Plugins
+
+##### Quickfix Reflector
+There are very few plugins I use in Vim but one that's especially useful for refactoring is the [quickfix reflector](https://github.com/stefandtw/quickfix-reflector.vim)
+Allowing you to edit and save the changes of the content in the quickfix list.
+
+For a language that does not have a language server (or any intelligence), this is a perfect fit.

@@ -25,9 +25,24 @@ you can easily achieve similar functionality in your git repository with `git ad
 
 ## Hunting down selectors with `git grep`
 
+### In CSS
 
+If you want to gather all classes and ids for a file, you can do something along the lines of
 
+```
+git grep -E '^#|^\.' yourcssfile.css
+```
 
+Save that somewhere before your refactoring so you can marvel at how much you've improved it afterwards.
+
+### In HTML 
+
+Since HTML is pretty dumb, 99% of the time, you can get away with an exact string search excluding the `#` or `.`.
+For example, if we want to find all usages of the `.table-cell` selector, we would search for `table-cell`.
+
+```
+git grep table-cell
+```
 
 ## Finding dead CSS with `mort`
 
