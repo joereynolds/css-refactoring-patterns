@@ -5,8 +5,6 @@ Using the CLI, you can get a huge reward for very little effort.
 
 ## Finding and replacing with `sed`
 
-Be as destructive as you want and then audit what you want to commit to your repository.
-
 **Replacing 0px (and others) with 0**
 (Note this replaces in place, run if you know what you're doing')
 ```

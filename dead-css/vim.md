@@ -6,7 +6,7 @@ When the CLI seems a bit too heavyweight, I like to go into Vim and do more fine
 
 Note: All these regexes assume CSS, not Less or Sass or any other thing that does weird stuff to your beautiful CSS.
 
-Also note that all of these regexes are being used in a search `/`.
+Also note that most of these regexes are being used in a search `/`.
 
 ##### Commented out code
 
@@ -18,7 +18,7 @@ Let's highlight them (The comments, not the people).
 
 Or you can use a vim motion too!
 The below will take you to the next 'c-style' comment.
-See `:help ]/`
+See `:help ]/`.
 ```
 ]/
 ```
@@ -46,7 +46,7 @@ Regex for duplicate rule in a selector goes here
 /{.*\n.*\n}
 ```
 
-Or more specifically
+Or specifically for one rule
 ```
 /{\n*\sbackground.*\n}
 ```
@@ -67,6 +67,7 @@ Replacing with confirmation:
 #### Plugins
 
 ##### Quickfix Reflector
+
 There are very few plugins I use in Vim but one that's especially useful for refactoring is the [quickfix reflector](https://github.com/stefandtw/quickfix-reflector.vim)
 Allowing you to edit and save the changes of the content in the quickfix list.
 
