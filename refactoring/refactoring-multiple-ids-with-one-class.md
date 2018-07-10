@@ -66,11 +66,9 @@ At this point, you've refactored your many selectors into one and so you're read
 refactoring the HTML and views that use it.
 
 In some cases you don't want to remove all of the ids (javascript might be targeting it etc...).
-However, if it's just static HTML, then you should have no problems with the following:
+However, if it's just static HTML, then you should have no problem just doing a search and replace.
 
-```
-sed command goes here
-```
+Remember to confirm with `git add -p`!
 
 ## Caveats
 
