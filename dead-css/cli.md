@@ -11,11 +11,6 @@ Using the CLI, you can get a huge reward for very little effort.
 sed -ir 's/0(px|em)/0/g' file.css
 ```
 
-**Removing empty rules**
-```
-
-```
-
 **NOTE:**
 
 While `sed` can't offer you a confirmation prompt before each change,

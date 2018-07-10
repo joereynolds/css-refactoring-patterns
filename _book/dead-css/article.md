@@ -2,8 +2,8 @@
 
 
 ## Removing
-### What is safe to remove?
 
+### What is safe to remove?
 
 #### Children of unused selectors
 

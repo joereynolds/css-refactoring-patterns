@@ -17,7 +17,6 @@
 * [Dead CSS](part2/README.md)
     * [Using the CLI](dead-css/cli.md)
     * [Using Vim](dead-css/vim.md)
-    * [Tools](dead-css/tools.md)
 
 * [Refactoring in the wild](part3/README.md)
     * [Replacing multiple ids with one class](refactoring/refactoring-multiple-ids-with-one-class.md)

@@ -33,13 +33,6 @@ The rule below will help highlight any.
 /{\(\s\|\n\)*\}
 ```
 
-##### Duplicate rules in selectors
-
-Regex for duplicate rule in a selector goes here    
-```
-
-```
-
 ##### Selectors with one rule
 
 ```
@@ -50,8 +43,6 @@ Or specifically for one rule
 ```
 /{\n*\sbackground.*\n}
 ```
-
-
 
 ##### 0 unit detection
 
