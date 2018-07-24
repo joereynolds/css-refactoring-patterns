@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Using Vim · GitBook</title>
+        <title>Removing a selector · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../part3/README.md" />
     
-    
-    <link rel="prev" href="cli.html" />
+    <link rel="prev" href="refactoring-multiple-ids-with-one-class.html" />
     
 
     </head>
@@ -291,9 +289,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="cli.html">
+        <li class="chapter " data-level="1.3.1" data-path="../dead-css/cli.html">
             
-                <a href="cli.html">
+                <a href="../dead-css/cli.html">
             
                     
                     Using the CLI
@@ -304,9 +302,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2" data-path="vim.html">
+        <li class="chapter " data-level="1.3.2" data-path="../dead-css/vim.html">
             
-                <a href="vim.html">
+                <a href="../dead-css/vim.html">
             
                     
                     Using Vim
@@ -336,9 +334,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../refactoring/refactoring-multiple-ids-with-one-class.html">
+        <li class="chapter " data-level="1.4.1" data-path="refactoring-multiple-ids-with-one-class.html">
             
-                <a href="../refactoring/refactoring-multiple-ids-with-one-class.html">
+                <a href="refactoring-multiple-ids-with-one-class.html">
             
                     
                     Replacing multiple ids with one class
@@ -349,9 +347,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../refactoring/removing-a-selector.html">
+        <li class="chapter active" data-level="1.4.2" data-path="removing-a-selector.html">
             
-                <a href="../refactoring/removing-a-selector.html">
+                <a href="removing-a-selector.html">
             
                     
                     Removing a selector
@@ -397,7 +395,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Using Vim</a>
+        <a href=".." >Removing a selector</a>
     </h1>
 </div>
 
@@ -412,36 +410,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="vim">Vim</h1>
-<p>When the CLI seems a bit too heavyweight, I like to go into Vim and do more fine-tuned refactoring.</p>
-<h4 id="refactoring-regexes">Refactoring regexes</h4>
-<p>Note: All these regexes assume CSS, not Less or Sass or any other thing that does weird stuff to your beautiful CSS.</p>
-<p>Also note that most of these regexes are being used in a search <code>/</code>.</p>
-<h5 id="commented-out-code">Commented out code</h5>
-<p>Sometimes people comment out code and then just forget to remove it.
-Let&apos;s highlight them (The comments, not the people).</p>
-<pre><code>/\/\*
-</code></pre><p>Or you can use a vim motion too!
-The below will take you to the next &apos;c-style&apos; comment.
-See <code>:help ]/</code>.</p>
-<pre><code>]/
-</code></pre><h5 id="selectors-with-no-rules">Selectors with no rules</h5>
-<p>Occasionally you&apos;ll come across empty selectors.</p>
-<p>The rule below will help highlight any.</p>
-<pre><code>/{\(\s\|\n\)*\}
-</code></pre><h5 id="selectors-with-one-rule">Selectors with one rule</h5>
-<pre><code>/{.*\n.*\n}
-</code></pre><p>Or specifically for one rule</p>
-<pre><code>/{\n*\sbackground.*\n}
-</code></pre><h5 id="0-unit-detection">0 unit detection</h5>
-<pre><code>/\&lt;0\(px\|em\|rem\)
-</code></pre><p>Replacing with confirmation:</p>
-<pre><code>:%s/\&lt;0\(px\|em\|rem\)/0/gc
-</code></pre><h4 id="plugins">Plugins</h4>
-<h5 id="quickfix-reflector">Quickfix Reflector</h5>
-<p>There are very few plugins I use in Vim but one that&apos;s especially useful for refactoring is the <a href="https://github.com/stefandtw/quickfix-reflector.vim" target="_blank">quickfix reflector</a>
-Allowing you to edit and save the changes of the content in the quickfix list.</p>
-<p>For a language that does not have a language server (or any intelligence), this is a perfect fit.</p>
+                                <h1 id="removing-a-selector">Removing a selector</h1>
+<p>If I&apos;m refactoring CSS and my main focus is removing selectors, I go for the following workflow:</p>
+<p>1) Run <code>mort</code> across the codebase</p>
+<p>First I run <code>mort -f ./static/css/style.css</code> to get an idea of what <strong>can</strong> be removed.</p>
+<p>2) Verify</p>
+<p><code>mort</code> isn&apos;t perfect, string concatenation will slip through but it&apos;s still superior to manually grepping.
+Once I&apos;ve found a selector I want to get rid of, I do a few different greps to make sure it&apos;s okay.</p>
+<p>For example, if mort brings back</p>
+<pre><code>0 usages found. #brand-administration-tabs-container can probably be removed.
+</code></pre><p>I&apos;ll grep for <code>brand-</code> and <code>brand-administration</code> just to make sure it&apos;s not being concatted (or other weird stuff) elsewhere.</p>
+<p>3) Remove it </p>
+<p>At this point, it&apos;s safe to remove the selector from your stylesheet, delete it and move on.</p>
+<p>4) Remove the children</p>
+<p>If a dead selector (in our case <code>brand-administration-tabs-container</code>) has children, its children can be removed.</p>
+<p>i.e.    </p>
+<pre><code>#brand-administration-tabs-container
+{
+    position: relative;
+    margin-top: 20px;
+    width: 1179px;
+}
+
+#brand-administration-tabs-container div
+{
+    width: 150px;
+}
+
+#brand-administration-tabs-container div:hover
+{
+    background-color: #5C8EB3;
+    color: #FFF;
+}
+</code></pre><p>In the above example not only can we remove the main selector, but also the <code>div</code> and <code>div:hover</code>.</p>
 
                                 
                                 </section>
@@ -469,14 +470,10 @@ Allowing you to edit and save the changes of the content in the quickfix list.</
 
             
                 
-                <a href="cli.html" class="navigation navigation-prev " aria-label="Previous page: Using the CLI">
+                <a href="refactoring-multiple-ids-with-one-class.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Replacing multiple ids with one class">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../part3/README.md" class="navigation navigation-next " aria-label="Next page: Refactoring in the wild">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -485,7 +482,7 @@ Allowing you to edit and save the changes of the content in the quickfix list.</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Using Vim","level":"1.3.2","depth":2,"next":{"title":"Refactoring in the wild","level":"1.4","depth":1,"path":"part3/README.md","ref":"part3/README.md","articles":[{"title":"Replacing multiple ids with one class","level":"1.4.1","depth":2,"path":"refactoring/refactoring-multiple-ids-with-one-class.md","ref":"refactoring/refactoring-multiple-ids-with-one-class.md","articles":[]},{"title":"Removing a selector","level":"1.4.2","depth":2,"path":"refactoring/removing-a-selector.md","ref":"refactoring/removing-a-selector.md","articles":[]}]},"previous":{"title":"Using the CLI","level":"1.3.1","depth":2,"path":"dead-css/cli.md","ref":"dead-css/cli.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dead-css/vim.md","mtime":"2018-07-10T10:29:17.132Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-24T09:53:48.557Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Removing a selector","level":"1.4.2","depth":2,"previous":{"title":"Replacing multiple ids with one class","level":"1.4.1","depth":2,"path":"refactoring/refactoring-multiple-ids-with-one-class.md","ref":"refactoring/refactoring-multiple-ids-with-one-class.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"refactoring/removing-a-selector.md","mtime":"2018-07-24T09:50:52.288Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-24T09:53:48.557Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

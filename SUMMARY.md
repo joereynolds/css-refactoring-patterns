@@ -20,3 +20,4 @@
 
 * [Refactoring in the wild](part3/README.md)
     * [Replacing multiple ids with one class](refactoring/refactoring-multiple-ids-with-one-class.md)
+    * [Removing a selector](refactoring/removing-a-selector.md)
