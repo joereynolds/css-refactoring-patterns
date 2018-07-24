@@ -16,7 +16,7 @@ https://joereynolds.gitbooks.io/css-refactoring-patterns
 
 ## Development
 
-It's not finished but you can perve at it with:
+It's not finished but you can serve it with:
 
 ```
 gitbook serve
