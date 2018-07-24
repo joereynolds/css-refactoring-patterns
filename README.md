@@ -2,6 +2,10 @@
 
 Refactoring patterns for CSS.
 
+https://joereynolds.gitbooks.io/css-refactoring-patterns
+
+
+
 # The chapters
 
 * Patterns: A collection of refactoring patterns for CSS.
